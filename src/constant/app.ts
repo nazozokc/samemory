@@ -1,1 +1,1 @@
-export const MCP_NAME = "agent-memory-mcp";
+export const MCP_NAME = "my-memory-mcp";
