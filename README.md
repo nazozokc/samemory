@@ -1,4 +1,4 @@
-# my-memory-mcp
+# samemory
 
 WIP
 
