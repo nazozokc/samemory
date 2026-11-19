@@ -1,14 +1,18 @@
 import { z } from "zod";
 
+export const CategorySchema = z.enum([
+  "lessons",
+  "patterns",
+  "context",
+  "commands",
+  "preferences",
+]);
+
+export type Category = z.infer<typeof CategorySchema>;
+
 export const AgentMemorySchema = z.object({
   id: z.string(),
-  category: z.enum([
-    "lessons",
-    "patterns",
-    "context",
-    "commands",
-    "preferences",
-  ]),
+  category: CategorySchema,
   tags: z.array(z.string()),
   created: z.iso.datetime(),
   agent: z.string(),
@@ -18,6 +22,3 @@ export const AgentMemorySchema = z.object({
 });
 
 export type AgentMemory = z.infer<typeof AgentMemorySchema>;
-
-export type Category =
-  "lessons" | "patterns" | "context" | "commands" | "preferences";
