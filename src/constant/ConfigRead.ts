@@ -4,7 +4,12 @@ import { readFile } from "node:fs\/promises";
 import { ConfigDefault } from "./ConfigDefault.ts";
 import { type ConfigType, ConfigTypeSchema } from "./ConfigType.ts";
 
-const CONFIG_DIR = join(homedir(), ".config", "my-memory", "config.json");
+export const CONFIG_DIR = join(
+  homedir(),
+  ".config",
+  "my-memory",
+  "config.json",
+);
 
 export const ConfigDir = async (): Promise<ConfigType["dir"]> => {
   try {
