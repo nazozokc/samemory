@@ -13,7 +13,7 @@ export const SearchIndex = async ({
   const fuse = new Fuse(await SearchData(), {
     includeScore: true,
     includeMatches: true,
-    keys: [],
+    keys: ["category", "tags", "agent", "title", "summary", "content"],
   });
 
   let results = fuse.search(query);
