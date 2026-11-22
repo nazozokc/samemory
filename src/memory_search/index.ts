@@ -3,7 +3,7 @@ import { SearchData } from "./SearchData";
 import type { SearchType } from "./type";
 import type { AgentMemory } from "../Globaltype";
 
-export const SearchIndex = async ({
+export const Search = async ({
   query,
   category,
   tags,

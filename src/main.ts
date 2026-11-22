@@ -8,6 +8,8 @@ import { ConfigDir } from "./constant/ConfigRead.ts";
 import { getFile } from "./memory_get/index.ts";
 import { AgentMemorySaveSchema } from "./memory_save/type.ts";
 import { writeMemoryFile } from "./memory_save/index.ts";
+import { SearchSchema } from "./memory_search/type.ts";
+import { Search } from "./memory_search/index.ts";
 
 const lessons = join(await ConfigDir(), "lessons");
 const patterns = join(await ConfigDir(), "patterns");
@@ -93,8 +95,33 @@ server.registerTool(
         },
       ],
       structuredContent: {
-        success: false,
+        isError: true,
       },
+    };
+  },
+);
+
+server.registerTool(
+  "memory_search",
+  {
+    description: "Get agent memory",
+    inputSchema: SearchSchema,
+  },
+  async ({ query, category, tags, limit }) => {
+    const result = await Search({
+      query,
+      category,
+      tags,
+      limit,
+    });
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: JSON.stringify(result, null, 2),
+        },
+      ],
     };
   },
 );
