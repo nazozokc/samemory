@@ -22,6 +22,8 @@ export const SearchData = async (): Promise<AgentMemory[]> => {
 
     for (const categoryDir of categoryreadDir) {
       const filePath = join(dir, memoryDir, categoryDir);
+      const check = await stat(filePath);
+      if (!check.isFile()) continue;
       const FileRead = await readFile(filePath, "utf-8");
       const json = JSON.parse(FileRead);
       const filesafeparse = AgentMemorySchema.safeParse(json);
