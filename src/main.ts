@@ -32,7 +32,7 @@ server.registerTool(
     inputSchema: MemoryGetInputSchema,
   },
   async ({ id }) => {
-    const memory = getFile(id);
+    const memory = await getFile(id);
 
     if (!memory) {
       return {

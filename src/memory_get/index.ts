@@ -25,7 +25,7 @@ export const getFile = async (id: string): Promise<AgentMemory | undefined> => {
     const dir = join(await ConfigDir(), memory);
     const readDirectory = await readdir(dir, "utf-8");
     if (!readDirectory.includes(`${id}.json`)) continue;
-    const joinFile = join(await ConfigDir(), "memory", `${id}.json`);
+    const joinFile = join(await ConfigDir(), memory, `${id}.json`);
     const readJSON = await readFile(joinFile, "utf-8");
 
     const SafeSchema = AgentMemorySchema.safeParse(JSON.parse(readJSON));
