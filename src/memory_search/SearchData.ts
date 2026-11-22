@@ -10,7 +10,7 @@ import {
 export const SearchData = async (): Promise<AgentMemory[]> => {
   const dir = await ConfigDir();
   const readmemoryDir = await readdir(dir, "utf-8");
-  const res = [];
+  const res: AgentMemory[] = [];
 
   for (const memoryDir of readmemoryDir) {
     const jadgeFile = await stat(join(dir, memoryDir));
@@ -21,7 +21,8 @@ export const SearchData = async (): Promise<AgentMemory[]> => {
     const categoryreadDir = await readdir(join(dir, memoryDir), "utf-8");
 
     for (const categoryDir of categoryreadDir) {
-      const FileRead = await readFile(categoryDir, "utf-8");
+      const filePath = join(dir, memoryDir, categoryDir);
+      const FileRead = await readFile(filePath, "utf-8");
       const filesafeparse = AgentMemorySchema.safeParse(JSON.parse(FileRead));
 
       if (!filesafeparse.success) continue;
