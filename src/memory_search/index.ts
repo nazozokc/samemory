@@ -9,9 +9,6 @@ export const SearchIndex = async ({
   tags,
   limit,
 }: SearchType): Promise<AgentMemory[]> => {
-  let searchQ;
-  if (category !== undefined) searchQ = category;
-
   const limited = limit ?? 30;
   const fuse = new Fuse(await SearchData(), {
     includeScore: true,
