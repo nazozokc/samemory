@@ -1,9 +1,16 @@
 {
   "name": "agent-memory-mcp",
-  "module": "index.ts",
+  "module": "src/index.ts",
   "type": "module",
+  "bin": {
+    "samemory": "dist/index.mjs"
+  },
+  "repository": {
+    "url": "https://github.com/nazozokc/samemory"
+  },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "tsdown": "latest"
   },
   "peerDependencies": {
     "typescript": "^7"
