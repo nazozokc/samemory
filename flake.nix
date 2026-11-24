@@ -9,7 +9,13 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = inputs@{ self, nixpkgs, flake-parts, ... }:
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      flake-parts,
+      ...
+    }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "aarch64-darwin"
@@ -17,7 +23,8 @@
         "x86_64-linux"
       ];
 
-      perSystem = { system, ... }:
+      perSystem =
+        { system, ... }:
         let
           pkgs = nixpkgs.legacyPackages.${system};
         in
@@ -28,6 +35,7 @@
               # >>> flake-generate:packages
               # Node.js
               pkgs.nodejs
+              pkgs.git
               pkgs.bun
               pkgs.typescript
               # <<< flake-generate:packages
