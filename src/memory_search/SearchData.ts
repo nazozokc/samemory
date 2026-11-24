@@ -25,8 +25,7 @@ export const SearchData = async (): Promise<AgentMemory[]> => {
       const check = await stat(filePath);
       if (!check.isFile()) continue;
       const FileRead = await readFile(filePath, "utf-8");
-      const json = JSON.parse(FileRead);
-      const filesafeparse = AgentMemorySchema.safeParse(json);
+      const filesafeparse = AgentMemorySchema.safeParse(JSON.parse(FileRead));
 
       if (!filesafeparse.success) continue;
 
