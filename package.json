@@ -2,6 +2,7 @@
   "name": "samemory",
   "module": "src/index.ts",
   "type": "module",
+  "version": "0.0.1",
   "bin": {
     "samemory": "dist/index.mjs"
   },
