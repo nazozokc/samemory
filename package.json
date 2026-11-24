@@ -1,5 +1,5 @@
 {
-  "name": "agent-memory-mcp",
+  "name": "samemory",
   "module": "src/index.ts",
   "type": "module",
   "bin": {
