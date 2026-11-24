@@ -1,15 +1,7 @@
-import { join } from "node:path";
-import { homedir } from "node:os";
 import { readFile } from "node:fs\/promises";
 import { ConfigDefault } from "./ConfigDefault.ts";
 import { type ConfigType, ConfigTypeSchema } from "./ConfigType.ts";
-
-export const CONFIG_DIR = join(
-  homedir(),
-  ".config",
-  "my-memory",
-  "config.json",
-);
+import { CONFIG_DIR } from "./app.ts";
 
 export const ConfigDir = async (): Promise<ConfigType["dir"]> => {
   try {
