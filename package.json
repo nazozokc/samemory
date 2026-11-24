@@ -6,8 +6,14 @@
     "samemory": "dist/index.mjs"
   },
   "repository": {
-    "url": "https://github.com/nazozokc/samemory"
+    "url": "https://github.com/nazozokc/samemory.git"
   },
+  "files": [
+    "dist",
+    "README.md",
+    "package.json",
+    "LICENSE"
+  ],
   "devDependencies": {
     "@types/bun": "latest",
     "tsdown": "latest"
