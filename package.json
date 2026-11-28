@@ -15,6 +15,9 @@
     "package.json",
     "LICENSE"
   ],
+  "scripts": {
+    "build": "bunx tsdown"
+  },
   "devDependencies": {
     "@types/bun": "latest",
     "tsdown": "latest"

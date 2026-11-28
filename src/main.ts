@@ -11,18 +11,6 @@ import { writeMemoryFile } from "./memory_save/index.ts";
 import { SearchSchema } from "./memory_search/type.ts";
 import { Search } from "./memory_search/index.ts";
 
-const lessons = join(await ConfigDir(), "lessons");
-const patterns = join(await ConfigDir(), "patterns");
-const context = join(await ConfigDir(), "context");
-const commands = join(await ConfigDir(), "commands");
-const preferences = join(await ConfigDir(), "preferences");
-
-await mkdir(lessons, { recursive: true });
-await mkdir(patterns, { recursive: true });
-await mkdir(context, { recursive: true });
-await mkdir(commands, { recursive: true });
-await mkdir(preferences, { recursive: true });
-
 const server = new McpServer({ name: MCP_NAME, version: "0.0.1" });
 
 server.registerTool(

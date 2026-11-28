@@ -1,11 +1,7 @@
 import { join } from "node:path";
 import { writeFile, rename, mkdir } from "node:fs/promises";
 import { type AgentMemorySave, AgentMemorySaveSchema } from "./type.ts";
-import {
-  type AgentMemory,
-  AgentMemorySchema,
-  type Category,
-} from "../Globaltype.ts";
+import { type AgentMemory, AgentMemorySchema } from "../Globaltype.ts";
 import { ConfigDir } from "../constant/ConfigRead.ts";
 import { randomUUIDv7 } from "node:crypto";
 
