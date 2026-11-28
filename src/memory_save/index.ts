@@ -1,7 +1,11 @@
 import { join } from "node:path";
-import { writeFile, rename } from "node:fs/promises";
+import { writeFile, rename, mkdir } from "node:fs/promises";
 import { type AgentMemorySave, AgentMemorySaveSchema } from "./type.ts";
-import { type AgentMemory, AgentMemorySchema } from "../Globaltype.ts";
+import {
+  type AgentMemory,
+  AgentMemorySchema,
+  type Category,
+} from "../Globaltype.ts";
 import { ConfigDir } from "../constant/ConfigRead.ts";
 import { randomUUIDv7 } from "node:crypto";
 
@@ -54,6 +58,8 @@ export const writeMemoryFile = async ({
   );
 
   try {
+    const mkcategory = join(await ConfigDir(), categories);
+    await mkdir(mkcategory, { recursive: true });
     const stringify = JSON.stringify(SchemaCheck.data, null, 2);
     await writeFile(directoryTemp, stringify, "utf-8");
     await rename(directoryTemp, directory);
