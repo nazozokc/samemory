@@ -1,17 +1,14 @@
 import { McpServer } from "@modelcontextprotocol/server";
 import { StdioServerTransport } from "@modelcontextprotocol/server/stdio";
-import { mkdir } from "node:fs/promises";
 import { MemoryGetInputSchema } from "./memory_get/type.ts";
 import { MCP_NAME } from "./constant/app.ts";
-import { join } from "node:path";
-import { ConfigDir } from "./constant/ConfigRead.ts";
 import { getFile } from "./memory_get/index.ts";
 import { AgentMemorySaveSchema } from "./memory_save/type.ts";
 import { writeMemoryFile } from "./memory_save/index.ts";
 import { SearchSchema } from "./memory_search/type.ts";
 import { Search } from "./memory_search/index.ts";
 
-const server = new McpServer({ name: MCP_NAME, version: "0.0.1" });
+const server = new McpServer({ name: MCP_NAME, version: "0.0.5" });
 
 server.registerTool(
   "memory_get",
